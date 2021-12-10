@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.pinterest">
+    package="com.example.picturenotes">
 
     <application
         android:allowBackup="true"
@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Pinterest">
-        <activity android:name=".showNote"></activity>
+        <activity android:name="com.example.picturenotes.showNote"></activity>
 
-        <activity android:name=".ClickImage" />
+        <activity android:name="com.example.picturenotes.ClickImage" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.picturenotes.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,7 +22,7 @@
         </activity>
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.example.Pinterest.FileProvider"
+            android:authorities="com.example.picturenotes.FileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
