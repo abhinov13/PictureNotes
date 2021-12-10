@@ -1,5 +1,6 @@
 package com.example.picturenotes;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -89,6 +90,7 @@ public class staggeredAdapter extends RecyclerView.Adapter<staggeredAdapter.cust
                             Toast.makeText(context,"Deleted successfully",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(context,MainActivity.class);
                             context.startActivity(intent);
+                            ((Activity)context).finish();
                         }
                     });
 
