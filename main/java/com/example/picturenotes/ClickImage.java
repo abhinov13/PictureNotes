@@ -16,6 +16,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,7 +36,7 @@ public class ClickImage extends AppCompatActivity {
     File photoFile;
     String photoPath;
     Uri uri;
-    EditText editText;
+    EditText editText,category;
     Button button;
     boolean imageClicked;
     String absolutePath;
@@ -50,6 +51,7 @@ public class ClickImage extends AppCompatActivity {
         editText = findViewById(R.id.noteInput);
         button = findViewById(R.id.submitNote);
         imageClicked = false;
+        category = findViewById(R.id.category);
 
         button.setOnClickListener(new View.OnClickListener()
         {
@@ -59,6 +61,10 @@ public class ClickImage extends AppCompatActivity {
                 {
                     Toast.makeText(getApplicationContext(),"Please click an image to save",Toast.LENGTH_SHORT).show();
                 }
+                else if(category.getText().toString().trim().equals(""))
+                {
+                    Toast.makeText(getApplicationContext(), "Category is empty", Toast.LENGTH_SHORT).show();
+                }
                 else if(editText.getText().toString().trim().equals(""))
                 {
                     Toast.makeText(getApplicationContext(),"Note is empty",Toast.LENGTH_SHORT).show();
@@ -66,7 +72,7 @@ public class ClickImage extends AppCompatActivity {
                 else
                 {
                     postDatabase database = new postDatabase(getApplicationContext());
-                    database.insertData(absolutePath,editText.getText().toString());
+                    database.insertData(absolutePath,editText.getText().toString(), category.getText().toString());
                     Intent intent = new Intent();
                     setResult(RESULT_OK,intent);
                     finish();
@@ -159,6 +165,4 @@ public class ClickImage extends AppCompatActivity {
             Toast.makeText(this, "Picture not clicked", Toast.LENGTH_SHORT).show();
         }
     }
-
-
 }

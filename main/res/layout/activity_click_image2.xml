@@ -14,14 +14,22 @@
         android:clickable="true"
         android:src="@drawable/add_image"
         />
+    <EditText
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/imageView"
+        android:id="@+id/category"
+        android:hint="Enter Category Here"
+        />
 
     <EditText
         android:id="@+id/noteInput"
         android:layout_marginTop="16dp"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="300dp"
         android:hint="Add note here"
-        android:layout_below="@+id/imageView"
+        android:layout_below="@+id/category"
         android:gravity="left"
         />
     <Button

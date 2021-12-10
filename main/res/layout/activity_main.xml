@@ -5,15 +5,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <androidx.recyclerview.widget.RecyclerView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <EditText
+        android:id="@+id/categorySearchText"
+        android:layout_marginTop="16dp"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:hint="Search"
+        />
+        <ImageButton
+            android:id="@+id/categorySearchButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/search_clipart"
+            android:scaleType="fitXY"
+            android:onClick="searchCategory"
+            />
+
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/staggeredGridView"
         >
 
     </androidx.recyclerview.widget.RecyclerView>
 
+    </LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
